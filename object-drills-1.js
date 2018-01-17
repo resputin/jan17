@@ -14,3 +14,14 @@ function createMyObject() {
 const newObject = createMyObject();
 
 newObject.sayHello();
+
+function updateObject(obj) {
+  obj.foo = 'foo';
+  obj.bar = 'bar';
+  obj.bizz = 'bizz';
+  obj.bang = 'bang';
+}
+
+updateObject(newObject);
+
+console.log(newObject);
