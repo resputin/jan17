@@ -24,7 +24,6 @@
 //   console.log(`${key}: ${myCoolObject[key]}`);
 // }
 
-
 // const LOTR = {
 //   meals:['breakfast','second breakfast','elevensies','lunch','afternoon tea','dinner','supper']
 // };
@@ -33,23 +32,41 @@
 
 const employees = [
   {
-    name:'John',
-    jobTitle:'Developer'
+    name: 'John',
+    jobTitle: 'Developer',
+    boss: 'Richard'
   },
   {
-    name:'Jean',
-    jobTitle:'Manager'
+    name: 'Jean',
+    jobTitle: 'Manager',
+    boss: 'Richard'
   },
   {
-    name:'Larry',
-    jobTitle:'Cable Guy'
+    name: 'Larry',
+    jobTitle: 'Cable Guy',
+    boss: 'Richard'
   },
   {
-    name:'Bob',
-    jobTitle: 'Janitor'
+    name: 'Bob',
+    jobTitle: 'Janitor',
+    boss: 'Richard'
+  },
+  {
+    name: 'Richard',
+    jobTitle: 'Boss'
   }
 ];
 
 // employees.forEach((employee)=> {
 //   console.log(`${employee.name}, who is a ${employee.jobTitle}`);
 // });
+
+employees.forEach(employee => {
+  console.log(
+    `${employee.jobTitle} ${employee.name} reports to ${
+      employee.jobTitle !== 'Boss' ? employee.boss : 'nobody'
+    }.`
+  );
+});
+
+
