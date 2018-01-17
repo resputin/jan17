@@ -23,3 +23,33 @@
 // for (const key in myCoolObject) {
 //   console.log(`${key}: ${myCoolObject[key]}`);
 // }
+
+
+// const LOTR = {
+//   meals:['breakfast','second breakfast','elevensies','lunch','afternoon tea','dinner','supper']
+// };
+
+// console.log(LOTR.meals[3]);
+
+const employees = [
+  {
+    name:'John',
+    jobTitle:'Developer'
+  },
+  {
+    name:'Jean',
+    jobTitle:'Manager'
+  },
+  {
+    name:'Larry',
+    jobTitle:'Cable Guy'
+  },
+  {
+    name:'Bob',
+    jobTitle: 'Janitor'
+  }
+];
+
+// employees.forEach((employee)=> {
+//   console.log(`${employee.name}, who is a ${employee.jobTitle}`);
+// });
