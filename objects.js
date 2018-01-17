@@ -177,7 +177,7 @@ const HEROES = [
   { id: 7, name: 'Hulk', squad: 'Avengers' }
 ];
 
-const search = {id: 7, squad: 'Avengers'};
+// const search = {id: 7, squad: 'Avengers'};
 
 // const findOne = (arr, query) => {
 //   let queryKeys = Object.keys(query);
@@ -189,24 +189,24 @@ const search = {id: 7, squad: 'Avengers'};
 // };
 
 // THIS ONE WORKS
-const findOne = (arr, query) => {
-  let i = 0;
-  const foundArray = arr.find((entry) => {
-    let found = true;
-    //return true if the query key and value match the array key and value
-    for (let key in query) {
+// const findOne = (arr, query) => {
+//   let i = 0;
+//   const foundArray = arr.find((entry) => {
+//     let found = true;
+//     //return true if the query key and value match the array key and value
+//     for (let key in query) {
       
-      if (entry[key] !== query[key]) {
-        found = false;
-        break;
-      }
-      i++;
-    }
-    return found;
-  });
-  console.log(i);
-  return foundArray === undefined ? null : foundArray; 
-};
+//       if (entry[key] !== query[key]) {
+//         found = false;
+//         break;
+//       }
+//       i++;
+//     }
+//     return found;
+//   });
+//   console.log(i);
+//   return foundArray === undefined ? null : foundArray; 
+// };
 
 // const findOne = (arr, query) => {
 //   const queryKeys = Object.keys(query);
@@ -224,4 +224,62 @@ const findOne = (arr, query) => {
 //   return foundArray === undefined ? null : foundArray;
 // };
 
-console.log(findOne(HEROES, search));
+// console.log(findOne(HEROES, search));
+
+
+const search = {id: 2};
+
+// const findOne = (arr, query) => {
+//   let i = 0;
+//   const foundArray = arr.find((entry) => {
+//     let found = true;
+//     //return true if the query key and value match the array key and value
+//     for (let key in query) {
+      
+//       if (entry[key] !== query[key]) {
+//         found = false;
+//         break;
+//       }
+//       i++;
+//     }
+//     return found;
+//   });
+//   console.log(i);
+//   return foundArray === undefined ? null : foundArray; 
+// };
+
+
+const Database = {
+  store: {
+    heroes: [
+      { id: 1, name: 'Captain America', squad: 'Avengers' },
+      { id: 2, name: 'Iron Man', squad: 'Avengers' },
+      { id: 3, name: 'Spiderman', squad: 'Avengers' },
+      { id: 4, name: 'Superman', squad: 'Justice League' },
+      { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+      { id: 6, name: 'Aquaman', squad: 'Justice League' },
+      { id: 7, name: 'Hulk', squad: 'Avengers' },
+    ]
+  },
+  findOne(query) {
+    const arr = this.store.heroes;
+    let i = 0;
+    const foundArray = arr.find((entry) => {
+      i++;
+      let found = true;
+      //return true if the query key and value match the array key and value
+      for (let key in query) {
+        if (entry[key] !== query[key]) {
+          found = false;
+          
+        }
+      }
+      return found;
+    });
+    console.log(i);
+    return foundArray === undefined ? null : foundArray; 
+  }
+};
+
+
+console.log(Database.findOne(search));
