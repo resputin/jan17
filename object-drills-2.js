@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // function makeStudentReport(data) {
 //   let finalList = [];
@@ -19,34 +19,50 @@
 // console.log(studentData);
 
 
-const studentData = [
-  {
-    name: 'Tim',
-    status: 'Current student',
-    course: 'Biology',
-  },
-  {
-    name: 'Sue',
-    status: 'Withdrawn',
-    course: 'Mathematics',
-  },
-  {
-    name: 'Liz',
-    status: 'On leave',
-    course: 'Computer science',
-  },
-];
+// const studentData = [
+//   {
+//     name: 'Tim',
+//     status: 'Current student',
+//     course: 'Biology',
+//   },
+//   {
+//     name: 'Sue',
+//     status: 'Withdrawn',
+//     course: 'Mathematics',
+//   },
+//   {
+//     name: 'Liz',
+//     status: 'On leave',
+//     course: 'Computer science',
+//   },
+// ];
 
 
 
-const enrollInSummerSchool = (students) => {
-  let tempObj = students.map((element) => {
-    element.status = 'In Summer Schoool';
-    return element;
+// const enrollInSummerSchool = (students) => {
+//   let tempObj = students.map((element) => {
+//     element.status = 'In Summer Schoool';
+//     return element;
+//   });
+//   return tempObj;
+// }
+
+// const newStatus = enrollInSummerSchool(studentData);
+
+// console.log(newStatus);
+
+function findById(items, idNum) {
+  let found = items.find((element) => {
+    return element.id === idNum;
   });
-  return tempObj;
+  return found;
 }
 
-const newStatus = enrollInSummerSchool(studentData);
+const scratchData = [
+  { id: 22, foo: 'bar' },
+  { id: 28, foo: 'bizz' },
+  { id: 19, foo: 'bazz' }
+];
 
-console.log(newStatus);
+let found = findById(scratchData, 28);
+console.log(found);
