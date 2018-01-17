@@ -149,10 +149,10 @@ let gandalf = createCharacter('Gandalf the White','wizard','across the ocean','1
 let characters = [createCharacter('frodo the hobbit','hobbit','the shire',20,50),createCharacter('Gandalf the White','wizard','across the ocean','100','90'),createCharacter('Gimmilee','dwarf','helm\'s deep','150','200'),createCharacter('Bilbo','Hobbit','The Shire','1','15'),createCharacter('Aragorn son of Arathorn','Man-Elf','Gondor','300','220')];
 characters.push(createCharacter('Arwen Undomiel','Half-elf','Rivendell','150','100'));
 
-characters.find((element) => {
-  // console.log(element.nickname);
-  return element.nickname === 'aragorn';
-}).describe();
+// characters.find((element) => {
+//   // console.log(element.nickname);
+//   return element.nickname === 'aragorn';
+// }).describe();
 
 const hobbitArr = characters.filter((element) => {
   return element.race.toLowerCase() === 'hobbit';
@@ -165,3 +165,63 @@ const strongPeople = characters.filter((element) => {
 });
 
 // console.log(strongPeople);
+
+
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 7, name: 'Hulk', squad: 'Avengers' }
+];
+
+const search = {id: 7, squad: 'Avengers'};
+
+// const findOne = (arr, query) => {
+//   let queryKeys = Object.keys(query);
+//   queryKeys.forEach((key) => {
+//     return arr.find((entry) => {
+//       return (entry.hasOwnProperty(key) && entry[key] === query[key]);
+//     });
+//   });
+// };
+
+// THIS ONE WORKS
+const findOne = (arr, query) => {
+  let i = 0;
+  const foundArray = arr.find((entry) => {
+    let found = true;
+    //return true if the query key and value match the array key and value
+    for (let key in query) {
+      
+      if (entry[key] !== query[key]) {
+        found = false;
+        break;
+      }
+      i++;
+    }
+    return found;
+  });
+  console.log(i);
+  return foundArray === undefined ? null : foundArray; 
+};
+
+// const findOne = (arr, query) => {
+//   const queryKeys = Object.keys(query);
+//   const foundArray = arr.find(entry => {
+//     let found = true;
+//     //return true if the query key and value match the array key and value
+//     let i = 0;
+//     while (found === true) {
+//       if (entry[queryKeys[i]] !== query[queryKeys[i]]) {
+//         found = false;
+//       }
+//     }
+//     return found;
+//   });
+//   return foundArray === undefined ? null : foundArray;
+// };
+
+console.log(findOne(HEROES, search));
